@@ -1,5 +1,8 @@
 import React, {useContext, useState} from 'react'
 import {Context} from '../../store'
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Navbar from 'react-bootstrap/Navbar';
 
 export default()=>{
     const idDrone = useFormInput("")
@@ -30,33 +33,39 @@ export default()=>{
     }
 
     return (
+        <>
+        <Navbar bg="light" expand="lg">
+        <Navbar.Brand href="#home">Rastreamento de Drone</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      </Navbar>
         <div id="drone-form">
             <center>
-            <form onSubmit={onSubmit}>
+            <Form onSubmit={onSubmit}>
                 <div className="form-group">
-                    <label>ID Drone:</label><br></br>
-                    <input {...idDrone} type="text" name="idDrone" placeholder="Id Drone" required autoFocus/>
+                    <Form.Label>ID Drone:</Form.Label>
+                    <Form.Control {...idDrone} type="text" name="idDrone" placeholder="Id Drone" required autoFocus/>
                 </div>
                 <div className="form-group">
-                    <label>Latitude:</label><br></br>
-                    <input {...latitude} type="text" name="latitude" placeholder="Latitude" required />
+                    <Form.Label>Latitude:</Form.Label><br></br>
+                    <Form.Control {...latitude} type="text" name="latitude" placeholder="Latitude" required />
                 </div>
                 <div className="form-group">
-                    <label>Longitude:</label><br></br>
-                    <input {...longitude} type="text" name="longitude" placeholder="Longitude" required />
+                    <Form.Label>Longitude:</Form.Label><br></br>
+                    <Form.Control {...longitude} type="text" name="longitude" placeholder="Longitude" required />
                 </div>
                 <div className="form-group">
-                    <label>Temperatura do Ar:</label><br></br>
-                    <input {...temperaturaAr} type="text" name="temperaturaAr" placeholder="Temperatura do ar" required />
+                    <Form.Label>Temperatura do Ar:</Form.Label><br></br>
+                    <Form.Control {...temperaturaAr} type="text" name="temperaturaAr" placeholder="Temperatura do ar" required />
                 </div>
                 <div className="form-group">
-                    <label>Umidade do Ar:</label><br></br>
-                    <input {...umidadeAr} type="text" name="umidadeAr" placeholder="Umidade ar" required />
+                    <Form.Label>Umidade do Ar:</Form.Label><br></br>
+                    <Form.Control {...umidadeAr} type="text" name="umidadeAr" placeholder="Umidade ar" required />
                 </div>
-                <button>Ativar rastreamento</button>
-            </form>
+                <Button type="submit">Ativar rastreamento</Button>
+            </Form>
             </center>
         </div>
+        </>
     )
 
 }
