@@ -26,8 +26,4 @@ public class ConsumerBO {
 			}
 		}
 	}
-
-	public void SendMail(String result) {
-		String res = result;
-	}
 }

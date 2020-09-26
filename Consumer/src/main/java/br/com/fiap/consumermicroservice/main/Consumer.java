@@ -3,11 +3,12 @@ package br.com.fiap.consumermicroservice.main;
 import java.util.List;
 
 import br.com.fiap.consumermicroservice.bo.ConsumerBO;
+import br.com.fiap.consumermicroservice.bo.MailBO;
 
 public class Consumer {
 
 	public static void main(String[] args) throws InterruptedException {
-
+			
 		int confTemp = 20;
 		int confUmi = 10;
 
@@ -22,7 +23,7 @@ public class Consumer {
 						int umidade = Integer.parseInt(message.split(";")[1]);
 
 						if ((temperatura >= confTemp || temperatura <= 0) || (umidade <= confUmi)) {
-							new ConsumerBO().SendMail(message);
+							new MailBO().SendEmailTLS();
 							break;
 						}
 
