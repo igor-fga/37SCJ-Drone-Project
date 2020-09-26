@@ -53,14 +53,7 @@ export default()=>{
                     <label>Umidade do Ar:</label><br></br>
                     <input {...umidadeAr} type="text" name="umidadeAr" placeholder="Umidade ar" required />
                 </div>
-                <div className="form-group">
-                <label>Ativar rastreamento?</label><br></br>
-                    <label>SIM</label>
-                    <input type="radio" name="optionRastreamento" value="true"/>
-                    <label>NÃO</label>
-                    <input type="radio" name="optionRastreamento" value="false"/>
-                    </div>
-                <button>Enviar</button>
+                <button>Ativar rastreamento</button>
             </form>
             </center>
         </div>
