@@ -45,3 +45,19 @@ de energia, pois conta com pequenos, porém muito eficientes painéis fotovoltai
   7- Entre no Package **br.com.fiap.consumermicroservice.main** e clique na classe Java **Consumer** e clique em **Run**.
   
 ---
+
+## Instalação e execução do projeto "Webapp"
+
+- Importar o projeto (Ex. Vscode)
+  
+  1- No Vscode, selecione **File > Open folder...**.
+  
+  2- Na janela de importação, selecionar a pasta Webapp.
+  
+  3- No Vscode clicar no menu Terminal e na opção New terminal.
+  
+  4- No terminal, baixe as dependências do projeto digitando o comando "npm install --save" e pressionar enter.
+  
+  5- Ainda no terminal, execute a inicialização do projeto com o comando "npm start".
+  
+  6- O navegador irá abrir automaticamente a URL
