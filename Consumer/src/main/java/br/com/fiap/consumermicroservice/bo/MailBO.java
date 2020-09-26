@@ -10,9 +10,11 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import br.com.fiap.consumermicroservice.dto.DroneInfoDTO;
+
 public class MailBO {
 
-	public void SendEmailTLS() {
+	public void SendEmailTLS(DroneInfoDTO drone) {
 
 		final String username = "ddronefiap@gmail.com";
 		final String password = "12345@21";
@@ -34,8 +36,10 @@ public class MailBO {
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress("ddronefiap@gmail.com"));
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("ifgandrade@gmail.com"));
-			message.setSubject("Testing Gmail TLS");
-			message.setText("Dear Mail Crawler," + "\n\n Please do not spam my email!");
+			message.setSubject("Alerta Drone Sensor");
+			message.setText("Dados coletados que batem com o filtro:" + "\n\n ID Drone: " + drone.getId()
+					+ "\n Latitude: " + drone.getLatitude() + "\n Longitude" + drone.getLongitude() + "\n Temperatura: "
+					+ drone.getTemperatura() + "\n Umidade do Ar: " + drone.getUmidade());
 
 			Transport.send(message);
 
