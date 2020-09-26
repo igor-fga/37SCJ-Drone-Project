@@ -9,9 +9,9 @@ public class Configuracao {
 
         if(connectionFactory == null){
             connectionFactory = new CachingConnectionFactory("coyote.rmq.cloudamqp.com");//TODO add hostname
-            connectionFactory.setUsername("xuojrorw");//TODO add username
-            connectionFactory.setPassword("8N6MH52gBGrZ9encN5qFREiEt8pIEuT5");//TODO add password
-            connectionFactory.setVirtualHost("xuojrorw");//TODO add virtualhost
+            connectionFactory.setUsername("rfmtnuhj");//TODO add username
+            connectionFactory.setPassword("jh-cwR1LBDUq9nDhuonK4BNWqPau1aat");//TODO add password
+            connectionFactory.setVirtualHost("rfmtnuhj");//TODO add virtualhost
 
             //Recommended settings
             connectionFactory.setRequestedHeartBeat(30);
