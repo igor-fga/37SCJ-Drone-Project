@@ -1,6 +1,9 @@
 # 37SCJ-Drone-Project
 Projeto para disciplina Integrations &amp; Development Tools (FIAP)
 
+Solução para o agronegócio que coleta dados via sensores de temperatura e umidade. Esses sensores ficarão instalados em um drone com uma altíssima autonomia
+de energia, pois conta com pequenos, porém muito eficientes painéis fotovoltaicos.
+
 ![Imagem Drone](Images/drone.PNG)
 
 ##  Pré-requisitos para execução do projeto
