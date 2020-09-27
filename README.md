@@ -58,6 +58,8 @@ de energia, pois conta com pequenos, porém muito eficientes painéis fotovoltai
   
   4- No terminal, baixe as dependências do projeto digitando o comando "npm install --save" e pressionar enter.
   
+  4- Instale as dependencias do bootstrap, com os comandos "npm install --save bootstrap" e "npm install --save reactstrap react react-dom"
+  
   5- Ainda no terminal, execute a inicialização do projeto com o comando "npm start".
   
   6- O navegador irá abrir automaticamente a URL
