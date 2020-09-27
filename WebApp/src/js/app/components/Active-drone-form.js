@@ -16,7 +16,7 @@ export default()=>{
 
     const droneData = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json','Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept','Access-Control-Allow-Origin':'*' },
         body: JSON.stringify({ idDrone: idDrone.value, latitude: latitude.value, longitude: longitude.value
         , temperaturaAr: temperaturaAr.value, umidadeAr: umidadeAr.value })
     };
