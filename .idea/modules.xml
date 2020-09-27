@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/37SCJ-Drone-Project.iml" filepath="$PROJECT_DIR$/.idea/37SCJ-Drone-Project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Consumer/consumer-microservice.iml" filepath="$PROJECT_DIR$/Consumer/consumer-microservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Producer/drone/drone.iml" filepath="$PROJECT_DIR$/Producer/drone/drone.iml" />
+    </modules>
+  </component>
+</project>
