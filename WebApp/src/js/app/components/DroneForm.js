@@ -8,7 +8,7 @@ export default () => {
     const longitude = useFormInput("")
     const temperaturaAr = useFormInput("")
     const umidadeAr = useFormInput("")
-    const ativarRastreamento = true
+    const ativarRastreamento = useFormInputChecked("")
     // eslint-disable-next-line no-unused-vars
     const [state, dispatch] = useContext(DroneContext)
 
@@ -17,7 +17,7 @@ export default () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             idDrone: idDrone.value, latitude: latitude.value, longitude: longitude.value
-            , temperaturaAr: temperaturaAr.value, umidadeAr: umidadeAr.value
+            , temperaturaAr: temperaturaAr.value, umidadeAr: umidadeAr.value, ativarRastreamento: ativarRastreamento.value
         })
     };
 
@@ -27,7 +27,7 @@ export default () => {
             type: "ADD_DRONE",
             payload: {
                 idDrone: idDrone.value, latitude: latitude.value, longitude: longitude.value,
-                temperaturaAr: temperaturaAr.value, umidadeAr: umidadeAr.value, ativarRastreamento: ativarRastreamento.checked
+                temperaturaAr: temperaturaAr.value, umidadeAr: umidadeAr.value, ativarRastreamento: ativarRastreamento.value
             }
         })
         fetch('http://127.0.0.1:8080/drones', droneData)
@@ -36,6 +36,8 @@ export default () => {
             });
     };
 
+
+
     return (
         <Col className="form" md="4">
             <h3>Adicionar rastreamento</h3>
@@ -43,7 +45,7 @@ export default () => {
                 <FormGroup>
                     <Label>ID Drone:</Label>
 
-                    <Input {...idDrone} type="text" name="idDrone"  required autoFocus />
+                    <Input {...idDrone} type="text" name="idDrone" required autoFocus />
                 </FormGroup>
                 <FormGroup>
                     <Label>Latitude:</Label>
@@ -62,10 +64,10 @@ export default () => {
                     <Input {...umidadeAr} type="text" name="umidadeAr" required />
                 </FormGroup>
                 <FormGroup>
-                    <Label for="exampleCheckbox">Ativar Rastreamento? </Label>
+                    <Label for="exampleCheckbox">Ativar Rastreamento?</Label>
                     <div>
-                        <CustomInput type="switch" id="ativarRastreamento" name="ativarRastreamento" label="Ativar"
-                        />
+                        <CustomInput {...ativarRastreamento} type="switch" id="ativarRastreamento" name="ativarRastreamento" 
+                        value="true"/>
                     </div>
                 </FormGroup>
 
@@ -78,7 +80,16 @@ export default () => {
 
 }
 
-
+function useFormInputChecked(initialValue) {
+    const [value, setValue] = useState(initialValue)
+    const handleChange = e => {
+        setValue(e.target.checked)
+    }
+    return {
+        value,
+        onChange: handleChange
+    }
+}
 
 function useFormInput(initialValue) {
     const [value, setValue] = useState(initialValue)
