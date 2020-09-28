@@ -1,5 +1,5 @@
 import React, {useReducer, createContext} from 'react'
-export const Context = createContext()
+export const DroneContext = createContext()
 
 const initialState ={
     drones: []
@@ -7,7 +7,7 @@ const initialState ={
 
 const reducer = (state,action) =>{
     switch (action.type){
-        case "ADICIONAR_DRONE":
+        case "ADD_DRONE":
             return{
                 drones: [...state.drones, action.payload]
             }
@@ -16,11 +16,11 @@ const reducer = (state,action) =>{
     }
 }
 
-export const ContextProvider = (props) =>{
+export const DroneContextProvider = (props) =>{
     const [state, dispatch] = useReducer(reducer,initialState)
     return(
-        <Context.Provider value={[state,dispatch]}>
+        <DroneContext.Provider value={[state,dispatch]}>
             {props.children}
-        </Context.Provider>
+        </DroneContext.Provider>
     )
 }

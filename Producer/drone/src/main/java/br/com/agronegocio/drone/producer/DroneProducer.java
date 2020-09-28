@@ -9,6 +9,7 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 
 import br.com.agronegocio.drone.config.Config;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import br.com.agronegocio.drone.model.Drone;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Component
 public class DroneProducer {
 
+	@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping(consumes = "application/json", produces = "application/json")
 	public void addDados(@RequestBody Drone drone) {
 

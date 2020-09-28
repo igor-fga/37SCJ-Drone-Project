@@ -1,27 +1,24 @@
 import React from 'react';
 import './App.css';
-import Form from './js/app/components/Active-drone-form'
-import List from './js/app/components/Active-drone-list'
-import {ContextProvider} from './js/store'
+import {Container, Row, Col} from 'reactstrap'
+import DroneForm from './js/app/components/DroneForm'
+import DronesList from './js/app/components/DronesList'
+import {DroneContextProvider} from './js/app/store'
+
 
 export default ()=>{
   return(
-    <ContextProvider>
-<center>
-<table border="1px">
-      <tr>
-        <td>
-          <Form/>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <List/>
-        </td>
-      </tr>
-    </table>
-    </center>
-    </ContextProvider>  
-
+    <DroneContextProvider>
+      <Container>
+            <Row className="justify-content-center">
+                <Col md="12">
+                  <h1><strong>Rastreamento de Drones</strong></h1>
+                  <hr className="hr"/>
+                </Col>
+                <DroneForm/>
+                <DronesList/>
+            </Row>
+      </Container>
+    </DroneContextProvider>  
   )
 }
