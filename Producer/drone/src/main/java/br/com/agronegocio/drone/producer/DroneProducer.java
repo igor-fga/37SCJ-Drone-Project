@@ -6,7 +6,6 @@ import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 
-
 import br.com.agronegocio.drone.config.Config;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,14 +16,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value ="/drones")
+@RequestMapping(value = "/drones")
 @Component
 public class DroneProducer {
 
 	@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping(consumes = "application/json", produces = "application/json")
 	public void addDados(@RequestBody Drone drone) {
-
 
 		// Set up queue, exchanges and bindings
 		RabbitAdmin admin = new RabbitAdmin(Config.getConnection());
@@ -41,15 +39,11 @@ public class DroneProducer {
 
 		RabbitTemplate template = new RabbitTemplate(Config.getConnection());
 
+		System.out.println(drone.getId() + ";" + drone.getLatitude() + ";" + drone.getLongitude() + ";"
+				+ drone.getTemperaturaAr() + ";" + drone.getUmidadeAr());
 
-		//System.out.println("Temperatura:" + temperatura + ";" + "umidade:" + umidade);
-		final double temperatura = drone.getTemperaturaAr();
-		final double umidade = drone.getUmidadeAr();
-
-		template.convertAndSend(exchange, "inf", temperatura + ";" + umidade);
-
-
+		template.convertAndSend(exchange, "inf", drone.getId() + ";" + drone.getLatitude() + ";" + drone.getLongitude()
+				+ ";" + drone.getTemperaturaAr() + ";" + drone.getUmidadeAr());
 
 	}
-
 }
