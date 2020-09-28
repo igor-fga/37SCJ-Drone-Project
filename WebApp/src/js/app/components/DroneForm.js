@@ -27,7 +27,7 @@ export default () => {
             type: "ADD_DRONE",
             payload: {
                 idDrone: idDrone.value, latitude: latitude.value, longitude: longitude.value,
-                temperaturaAr: temperaturaAr.value, umidadeAr: umidadeAr.value, ativarRastreamento: ativarRastreamento.value
+                temperaturaAr: temperaturaAr.value, umidadeAr: umidadeAr.value, ativarRastreamento: ativarRastreamento.checked
             }
         })
         fetch('http://127.0.0.1:8080/drones', droneData)
