@@ -2,7 +2,7 @@ package br.com.agronegocio.drone.model;
 
 public class Drone {
 
-	private int Id;
+	private int idDrone;
 
 	private float latitude;
 
@@ -14,44 +14,25 @@ public class Drone {
 
 	private boolean ativarRastreamento;
 
-	public int getId() {
-		return Id;
+	public int getIdDrone() {
+		return idDrone;
 	}
 
-	public void setId(int id) {
-		Id = id;
-	}
 
 	public float getLatitude() {
 		return latitude;
-	}
-
-	public void setLatitude(float latitude) {
-		this.latitude = latitude;
 	}
 
 	public float getLongitude() {
 		return longitude;
 	}
 
-	public void setLongitude(float longitude) {
-		this.longitude = longitude;
-	}
-
 	public double getTemperaturaAr() {
 		return temperaturaAr;
 	}
 
-	public void setTemperaturaAr(double temperaturaAr) {
-		this.temperaturaAr = temperaturaAr;
-	}
-
 	public double getUmidadeAr() {
 		return umidadeAr;
-	}
-
-	public void setUmidadeAr(double umidadeAr) {
-		this.umidadeAr = umidadeAr;
 	}
 
 	public boolean isAtivarRastreamento() {
@@ -62,9 +43,9 @@ public class Drone {
 		this.ativarRastreamento = ativarRastreamento;
 	}
 
-	public Drone(int id, float latitude, float longitude, double temperaturaAr, double umidadeAr, boolean ativarRastreamento) {
+	public Drone(int idDrone, float latitude, float longitude, double temperaturaAr, double umidadeAr, boolean ativarRastreamento) {
 		super();
-		this.Id = id;
+		this.idDrone = idDrone;
 		this.latitude = latitude;
 		this.longitude = longitude;
 		this.temperaturaAr = temperaturaAr;
