@@ -12,28 +12,39 @@ export default () => {
     // eslint-disable-next-line no-unused-vars
     const [state, dispatch] = useContext(DroneContext)
 
-    const droneData = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            idDrone: idDrone.value, latitude: latitude.value, longitude: longitude.value
-            , temperaturaAr: temperaturaAr.value, umidadeAr: umidadeAr.value, ativarRastreamento: ativarRastreamento.value
+    const request = (data) => {
+        fetch('http://127.0.0.1:8080/drones', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
         })
-    };
+            .then(response => {
+                console.log("Data Saved");
+            }); 
+    }
 
     const onSubmit = event => {
+
+        let interval;
+        
+        const data = {
+            idDrone: idDrone.value, latitude: latitude.value, longitude: longitude.value,
+            temperaturaAr: temperaturaAr.value, umidadeAr: umidadeAr.value, ativarRastreamento: ativarRastreamento.value
+        }
+
         event.preventDefault()
         dispatch({
             type: "ADD_DRONE",
-            payload: {
-                idDrone: idDrone.value, latitude: latitude.value, longitude: longitude.value,
-                temperaturaAr: temperaturaAr.value, umidadeAr: umidadeAr.value, ativarRastreamento: ativarRastreamento.value
-            }
+            payload: data
         })
-        fetch('http://127.0.0.1:8080/drones', droneData)
-            .then(response => {
-                console.log("Data Saved");
-            });
+        request(data);
+
+        interval = setInterval(() => {
+            data.temperaturaAr = Math.floor((Math.random() * 40) + 1);
+            data.umidadeAr = Math.floor((Math.random() * 100) + 1);
+            request(data);
+        }, 10000);
+
     };
 
 
