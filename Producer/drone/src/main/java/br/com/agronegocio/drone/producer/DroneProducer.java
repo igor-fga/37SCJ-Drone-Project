@@ -44,28 +44,7 @@ public class DroneProducer {
 				+ drone.getTemperaturaAr() + ";" + drone.getUmidadeAr());
 
 		template.convertAndSend(exchange, "inf", drone.getIdDrone() + ";" + drone.getLatitude() + ";"
-				+ drone.getLongitude() + ";" + drone.getTemperaturaAr() + ";" + drone.getUmidadeAr());
-
-		Random r = new Random();
-		int low = -25;
-		int high = 40;
-		int lowu = 0;
-		int highu = 100;
-
-		while (true) {
-
-			Thread.sleep(10000);
-
-			int temperatura = r.nextInt(high - low) + low;
-			int umidade = r.nextInt(highu - lowu) + lowu;
-
-			System.out.println(drone.getIdDrone() + ";" + drone.getLatitude() + ";" + drone.getLongitude() + ";"
-					+ temperatura + ";" + umidade);
-
-			template.convertAndSend(exchange, "inf", drone.getIdDrone() + ";" + drone.getLatitude() + ";"
-					+ drone.getLongitude() + ";" + temperatura + ";" + umidade);
-
-		}
+				+ drone.getLongitude() + ";" + drone.getTemperaturaAr() + ";" + drone.getUmidadeAr());		
 
 	}
 }
