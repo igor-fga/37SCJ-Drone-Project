@@ -4,9 +4,9 @@ public class DroneInfoDTO {
 
 	private Long id;
 
-	private Long latitude;
+	private String latitude;
 
-	private Long longitude;
+	private String longitude;
 
 	private int temperatura;
 
@@ -16,8 +16,8 @@ public class DroneInfoDTO {
 		String[] fields = message.split(";");
 
 		this.id = Long.parseLong(fields[0]);
-		this.latitude = Long.parseLong(fields[1]);
-		this.longitude = Long.parseLong(fields[2]);
+		this.latitude = fields[1];
+		this.longitude = fields[2];
 		this.temperatura = Integer.parseInt(fields[3]);
 		this.umidade = Integer.parseInt(fields[4]);
 	}
@@ -30,19 +30,19 @@ public class DroneInfoDTO {
 		this.id = id;
 	}
 
-	public Long getLatitude() {
+	public String getLatitude() {
 		return latitude;
 	}
 
-	public void setLatitude(Long latitude) {
+	public void setLatitude(String latitude) {
 		this.latitude = latitude;
 	}
 
-	public Long getLongitude() {
+	public String getLongitude() {
 		return longitude;
 	}
 
-	public void setLongitude(Long longitude) {
+	public void setLongitude(String longitude) {
 		this.longitude = longitude;
 	}
 

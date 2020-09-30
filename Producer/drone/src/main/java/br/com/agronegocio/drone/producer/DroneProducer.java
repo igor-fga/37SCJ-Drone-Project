@@ -1,7 +1,5 @@
 package br.com.agronegocio.drone.producer;
 
-import java.util.Random;
-
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.core.Queue;

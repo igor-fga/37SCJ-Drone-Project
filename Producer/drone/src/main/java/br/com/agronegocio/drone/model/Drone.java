@@ -4,9 +4,9 @@ public class Drone {
 
 	private int idDrone;
 
-	private float latitude;
+	private String latitude;
 
-	private float longitude;
+	private String longitude;
 
 	private int temperaturaAr;
 
@@ -14,81 +14,56 @@ public class Drone {
 
 	private boolean ativarRastreamento;
 
-	
-
 	public int getIdDrone() {
 		return idDrone;
 	}
-
-
 
 	public void setIdDrone(int idDrone) {
 		this.idDrone = idDrone;
 	}
 
-
-
-	public float getLatitude() {
+	public String getLatitude() {
 		return latitude;
 	}
 
-
-
-	public void setLatitude(float latitude) {
+	public void setLatitude(String latitude) {
 		this.latitude = latitude;
 	}
 
-
-
-	public float getLongitude() {
+	public String getLongitude() {
 		return longitude;
 	}
 
-
-
-	public void setLongitude(float longitude) {
+	public void setLongitude(String longitude) {
 		this.longitude = longitude;
 	}
-
-
 
 	public int getTemperaturaAr() {
 		return temperaturaAr;
 	}
 
-
-
 	public void setTemperaturaAr(int temperaturaAr) {
 		this.temperaturaAr = temperaturaAr;
 	}
-
-
 
 	public int getUmidadeAr() {
 		return umidadeAr;
 	}
 
-
-
 	public void setUmidadeAr(int umidadeAr) {
 		this.umidadeAr = umidadeAr;
 	}
-
-
 
 	public boolean isAtivarRastreamento() {
 		return ativarRastreamento;
 	}
 
-
-
 	public void setAtivarRastreamento(boolean ativarRastreamento) {
 		this.ativarRastreamento = ativarRastreamento;
 	}
 
-
-
-	public Drone(int idDrone, float latitude, float longitude, int temperaturaAr, int umidadeAr, boolean ativarRastreamento) {
+	public Drone(int idDrone, String latitude, String longitude, int temperaturaAr, int umidadeAr,
+			boolean ativarRastreamento) {
 		super();
 		this.idDrone = idDrone;
 		this.latitude = latitude;
